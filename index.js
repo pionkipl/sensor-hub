@@ -7,10 +7,27 @@ const port = 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// Config the db
+const dbConfig = require('./config/database.config');
+const mongoose = require('mongoose');
+
+mongoose.Promise = global.Promise;
+
+// Connecting to db
+mongoose.connect(dbConfig.url, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => {
+  console.log('Successfully connected to the db');
+}).catch((err => {
+  console.log('Could not conneted due to ', err);
+  process.exit();
+}));
+
 app.get('/', (req, res) => {
-  res.json({"message": "Welcome to EasyNotes application. Take notes quickly. Organize and keep track of all your notes."});
+  res.json({"message": "Hello"});
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+require('./app/routes/measurement.routes')(app);
 
-console.log('Siema');
+app.listen(port);
