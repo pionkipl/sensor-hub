@@ -15,4 +15,4 @@ app.use("/device", device);
 
 app.listen(port);
 
-// database.initConnection();
+database.initConnection();
