@@ -1,0 +1,13 @@
+version: "3"
+services:
+  db:
+    image: postgres
+    container_name: "sensorhub_db"
+    environment:
+      - POSTGRES_USER=usr
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_DB=sensorhub
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./.postgres-data:/var/lib/postgresql/data
