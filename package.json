@@ -16,6 +16,7 @@
     "sequelize": "^5.19.6"
   },
   "devDependencies": {
+    "faker": "^4.1.0",
     "nodemon": "^1.19.3"
   }
 }

@@ -1,8 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const measurements = require("./measurements");
-const device = require("./device");
-const database = require("./database/connection");
+const measurementsRoute = require("./route/measurements");
+const deviceRoute = require("./route/device");
+const Sequelize = require("sequelize");
 
 const app = express();
 const port = 3000;
@@ -10,9 +10,7 @@ const port = 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use("/measurements", measurements);
-app.use("/device", device);
+app.use("/measurements", measurementsRoute);
+app.use("/device", deviceRoute);
 
 app.listen(port);
-
-database.initConnection();
