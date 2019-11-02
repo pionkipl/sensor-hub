@@ -31,7 +31,7 @@ router.put("/:id", (req, res) => {
   )
     .catch(error => res.status(400).send(error))
     .then(updatedDevice => {
-      return res.status(204).send(updatedDevice[1]);
+      return res.status(204).send(updatedDevice);
     });
 });
 
