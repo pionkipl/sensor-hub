@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "usr",
+    "password": "pass",
+    "database": "sensorhub",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}
